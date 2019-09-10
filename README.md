@@ -16,7 +16,7 @@ Run the script:
 
 Put them all into a folder so you can enjoy the step bellow:  
 
-The script also creates a *__init__.py* file, so you can import them all at once:  
+The script also creates a *\_\_init\_\_.py* file, so you can import them all at once:  
 ```python
 from yourapp.models import *
 ```
