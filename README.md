@@ -1,6 +1,6 @@
 # Split Django Models
 
- plit Django generated models into separated files, with proper names, classes and imports.
+Split Django generated models into separated files, with proper names, classes and imports.
 
 ## Usage
 
