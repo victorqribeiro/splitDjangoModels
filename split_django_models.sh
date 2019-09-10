@@ -18,7 +18,11 @@ for i in xx*.py;
 		filename=$(echo $classname | tr '[:upper:]' '[:lower:]')
 		sed '1i from django.db import models\n\n' $i -i;
 
-		imports=($(sed -n 's/.*ForeignKey(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g"))
+		fkey=$(sed -n 's/.*ForeignKey(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g")
+		
+		mtom=$(sed -n 's/.*ManyToManyField(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g")
+		
+		imports=("$fkey $mtom")
 
 		for import in ${imports[@]}
 			do
