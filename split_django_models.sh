@@ -20,9 +20,11 @@ for i in xx*.py;
 
 		fkey=$(sed -n 's/.*ForeignKey(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g")
 		
+		oton=$(sed -n 's/.*OneToOneField(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g")
+		
 		mtom=$(sed -n 's/.*ManyToManyField(\(.*\))/\1/p' $i | cut -d "," -f1 | sed "s/'//g")
 		
-		imports=("$fkey $mtom")
+		imports=("$fkey $oton $mtom")
 
 		for import in ${imports[@]}
 			do

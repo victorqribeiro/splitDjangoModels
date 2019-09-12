@@ -162,3 +162,23 @@ class WeatherGeocoding(models.Model):
     class Meta:
         managed = False
         db_table = 'weather_geocoding'
+
+class Publication(models.Model):
+    title = models.CharField(max_length=30)
+    test = models.OneToOneField('Test')
+
+    class Meta:
+        ordering = ('title',)
+
+    def __str__(self):
+        return self.title
+
+class Article(models.Model):
+    headline = models.CharField(max_length=100)
+    publications = models.ManyToManyField(Publication)
+
+    class Meta:
+        ordering = ('headline',)
+
+    def __str__(self):
+        return self.headline
